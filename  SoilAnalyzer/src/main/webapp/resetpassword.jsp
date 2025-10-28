@@ -214,27 +214,6 @@ body {
 	background-repeat: no-repeat;
 	z-index: -1;
 }
-
-/* New styles for password links */
-.password-links {
-	display: flex;
-	justify-content: space-between;
-	margin-top: 10px;
-	margin-bottom: 15px;
-}
-
-.password-link {
-	color: var(--primary-color);
-	text-decoration: none;
-	font-size: 0.9rem;
-	font-weight: 500;
-	transition: all 0.3s;
-}
-
-.password-link:hover {
-	color: var(--primary-dark);
-	text-decoration: underline;
-}
 </style>
 </head>
 <body>
@@ -269,70 +248,54 @@ body {
 				<h2>
 					<i class="fas fa-seedling me-2"></i>Soil Analyzer
 				</h2>
-				<p>Access your soil analysis dashboard</p>
+				<p>Reset Your Password</p>
 			</div>
 
 			<div class="card-body">
-				<form action="LoginServlet" method="post">
+				<form action="ResetPassword" method="post">
 					<div class="mb-3">
-						<label class="form-label fw-semibold">Username</label>
+						<label class="form-label fw-semibold">Email</label>
 						<div class="input-group">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
-							<input type="text" name="username" class="form-control"
+							<input type="text" name="email" class="form-control"
 								placeholder="Enter your username" required>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label fw-semibold">Current Password</label>
+						<div class="input-group">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<input type="text" name="password_1" class="form-control"
+								placeholder="Enter your New password" required>
+						</div>
+					</div>
+					<div class="mb-3">
+						<label class="form-label fw-semibold">New Password</label>
+						<div class="input-group">
+							<span class="input-group-text"><i class="fas fa-user"></i></span>
+							<input type="text" name="password" class="form-control"
+								placeholder="Enter your New password" required>
 						</div>
 					</div>
 
 					<div class="mb-4">
-						<label class="form-label fw-semibold">Password</label>
+						<label class="form-label fw-semibold">Confirm Password</label>
 						<div class="input-group">
 							<span class="input-group-text"><i class="fas fa-lock"></i></span>
 							<input type="password" name="password" class="form-control"
-								placeholder="Enter your password" required>
+								placeholder="Confirm Your Password" required>
 						</div>
 					</div>
 
 					<div class="d-grid mb-3">
 						<button type="submit" class="btn btn-login">
-							<i class="fas fa-sign-in-alt me-2"></i>Login to Dashboard
+							<i class="fas fa-sign-in-alt me-2"></i>Reset Password
 						</button>
 					</div>
 				</form>
-				
-				<!-- Password Management Links -->
-				<div class="password-links">
-					<a href="resetpassword.jsp" class="password-link">
-						<i class="fas fa-sync-alt me-1"></i>Reset Password
-					</a>
-					<a href="forgotpassword.jsp" class="password-link">
-						<i class="fas fa-question-circle me-1"></i>Forgot Password
-					</a>
-				</div>
 
-				<div class="divider">
-					<span>New to Soil Analyzer?</span>
-				</div>
 
-				<div class="d-grid">
-					<a href="register.jsp" class="btn btn-register">
-						<i class="fas fa-user-plus me-2"></i>Create New Account
-					</a>
-				</div>
 
-				<div class="row mt-4">
-					<div class="col-12">
-						<div class="feature-item">
-							<div class="feature-icon">
-								<i class="fas fa-leaf"></i>
-							</div>
-							<h5>Need Crop Advice?</h5>
-							<p>Get expert recommendations and plant disease diagnosis</p>
-							<a href="https://plantix.net" target="_blank" class="btn-plantix">
-								<i class="fas fa-external-link-alt me-2"></i>Visit Plantix
-							</a>
-						</div>
-					</div>
-				</div>
 			</div>
 		</div>
 

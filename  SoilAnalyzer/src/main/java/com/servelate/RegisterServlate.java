@@ -5,7 +5,7 @@ import java.sql.SQLException;
 
 import com.Bean.User;
 import com.DAO.UserDAO;
-import com.DBconnection_Email.Email_Sender;
+import com.DBconnection_Email.EmailSender;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -36,7 +36,7 @@ public class RegisterServlate  extends HttpServlet{
 				    request.getRequestDispatcher("register.jsp").forward(request, response);
 				} else if (dao.registerUser(user)) {
 					// Send email
-				    Email_Sender.sendMail(email, name);
+				    EmailSender.sendMail(email, name);
 				    request.setAttribute("msg", "Registration successful! Please login.");
 				    request.getRequestDispatcher("login.jsp").forward(request, response);
 				} else {

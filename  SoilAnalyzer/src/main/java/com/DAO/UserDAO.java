@@ -87,4 +87,42 @@ public class UserDAO {
 
 		return status;
 	}
+
+	public boolean resetpassword(String Email, String password) throws SQLException {
+		Connection con = DBconnection.getConnection();
+		boolean status = false;
+		String query = "UPDATE user SET password = ? WHERE email = ?";
+		PreparedStatement ps = con.prepareStatement(query);
+		ps.setString(1, password);
+		ps.setString(2, Email);
+
+		int rows = ps.executeUpdate();
+		if (rows > 0)
+			status = true;
+
+		return status;
+	}
+
+	public User retriveuserbymail(String mail) {
+		User ub = null;
+		Connection con = DBconnection.getConnection();
+		try {
+			PreparedStatement ps = con.prepareStatement("select * from user Where email=?");
+			ps.setString(1, mail);
+			ResultSet rs = ps.executeQuery();
+			while (rs.next()) {
+				ub = new User();
+				ub.setId(rs.getInt("id"));
+				ub.setName(rs.getString("username"));
+				ub.setPassword(rs.getString("password"));
+				ub.setContact(rs.getString("contact"));
+				ub.setEmail(rs.getString("email"));
+
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ub;
+	}
+
 }
